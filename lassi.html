@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <!-- Font Awesome for magnifying glass icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo */
+        .logo {
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .search-bar input[type="search"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            padding-right: 40px; /* Add space for the icon */
+        }
+
+        .search-bar input[type="search"]:focus {
+            border-color: #007bff;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 0;
+            background: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .search-bar button:hover {
+            color: #0056b3;
+        }
+
+        .search-bar .fa-search {
+            font-size: 16px;
+        }
+
+        /* Hero Section */
+        .hero-text {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        /* Food Category Section */
+        .categories {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .categories h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .category-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .category img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .category p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Lassi Section */
+        .lassi {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #fff;
+        }
+
+        .lassi h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .lassi-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            justify-content: center;
+        }
+
+        .lassi-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 15px;
+            text-align: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .lassi-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .lassi-card h4 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .lassi-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            padding: 20px;
+            border-top: 1px solid #444; /* Slightly lighter black for border */
+        }
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .footer h4 {
+            margin-bottom: 10px;
+            color: #fff; /* White text for headers */
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul li a {
+            text-decoration: none;
+            color: #ddd; /* Light grey for links */
+        }
+        .footer ul li a:hover {
+            color: #fff; /* White on hover */
+        }
+        .footer .company-info {
+            margin-right: 20px;
+        }
+        .footer .cities {
+            margin-top: 20px;
+        }
+        .footer .bottom {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer .bottom img {
+            max-width: 150px; /* Adjust size as needed */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/Swiggy-Emblem.png" alt="Logo"> 
+            <span>Food Delivery</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Swiggy Corporate</a></li>
+                <li><a href="#">Offers</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Cart</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <form action="/search" method="get">
+                <input type="search" name="query" placeholder="Search..." required>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-text">
+        <h2>What's on your mind?</h2>
+    </section>
+
+    <!-- Food Categories -->
+    <section class="categories">
+        <h3>Popular Categories</h3>
+        <div class="category-container">
+            <div class="category">
+                <img src="https://www.shutterstock.com/image-photo/dum-chicken-biriyani-close-image-600nw-2445682315.jpg" alt="Biryani"> 
+                <p>Biryani</p>
+            </div>
+            <div class="category">
+                <img src="https://e0.pxfuel.com/wallpapers/1021/323/desktop-wallpaper-the-fresh-dessert-yummy-ice-cream.jpg" alt="Ice-Cream"> 
+                <p>Ice-Cream</p>
+            </div>
+            <div class="category">
+                <img src="https://mrbrownbakery.com/image/images/GJ7uCwGiteTF24HTWBclkziVTdhpQeZWH23MvQfq.jpeg?p=full" alt="Cakes"> 
+                <p>Cakes</p>
+            </div>
+            <div class="category">
+                <img src="https://img.freepik.com/free-photo/fresh-coffee-steams-wooden-table-close-up-generative-ai_188544-8923.jpg" alt="Coffee"> 
+                <p>Coffee</p>
+            </div>
+            <div class="category">
+                <img src="https://www.maggi.in/sites/default/files/srh_recipes/f0f349a51947f81de93e374f21372f27.jpg" alt="Khichdi"> 
+                <p>Khichdi</p>
+            </div>
+            <div class="category">
+                <img src="https://i.ndtvimg.com/i/2018-05/aloo-ka-paratha_650x400_61525766113.jpg" alt="Paratha"> 
+                <p>Paratha</p>
+            </div>
+            <div class="category">
+                <img src="https://sandhyahariharan.co.uk/wp-content/uploads/2020/04/mango-lassi-1-of-1.jpg" alt="Lassi"> 
+                <p>Lassi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lassi Section -->
+    <section class="lassi">
+        <h3>Delicious Lassi Varieties</h3>
+        <div class="lassi-container">
+            <div class="lassi-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvxSou96-cJTJTP194iVVqQw6qiRHeah2EREeHpTtsKo1BTKF9FFKziUYXp0joL1i8ij4&usqp=CAU" alt="Mango Lassi">
+                <h4>Mango Lassi</h4>
+                <p>A refreshing blend of yogurt and ripe mangoes, perfect for a sweet treat.</p>
+            </div>
+            <div class="lassi-card">
+                <img src="https://www.curiouscuisiniere.com/wp-content/uploads/2021/09/Sweet-Lassi-5.feature-720x720.jpg" alt="Sweet Lassi">
+                <h4>Sweet Lassi</h4>
+                <p>A creamy and sweet yogurt drink, often flavored with cardamom and saffron.</p>
+            </div>
+            <div class="lassi-card">
+                <img src="https://cdn.grofers.com/assets/search/usecase/banner/salted_lassi_01.png" alt="Salted Lassi">
+                <h4>Salted Lassi</h4>
+                <p>A tangy and savory yogurt drink, seasoned with spices and herbs.</p>
+            </div>
+            <div class="lassi-card">
+                <img src="https://consumer-voice.org/wp-content/uploads/2023/04/Buttermilk-A-Refreshing-Summer-Drink.jpg" alt="Buttermilk Lassi">
+                <h4>Buttermilk Lassi</h4>
+                <p>A light and cooling drink made from churned yogurt, ideal for hot days.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <img src="https://i.pinimg.com/736x/ae/f6/d0/aef6d084d09af1779ae1fb640d39a970.jpg" alt="Swiggy Logo" height="200" width="200">
+            <div class="company-info">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Swiggy One</a></li>
+                    <li><a href="#">Swiggy Instamart</a></li>
+                    <li><a href="#">Swiggy Genie</a></li>
+                </ul>
+            </div>
+            <div class="support">
+                <h4>Contact us</h4>
+                <ul>
+                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="#">Partner with us</a></li>
+                    <li><a href="#">Ride with us</a></li>
+                </ul>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Investor Relations</a></li>
+                </ul>
+            </div>
+            <div class="cities">
+                <h4>We deliver to:</h4>
+                <ul>
+                    <li>Bangalore</li>
+                    <li>Gurgaon</li>
+                    <li>Hyderabad</li>
+                    <li>Delhi</li>
+                    <li>Mumbai</li>
+                    <li>Pune</li>
+                    <li>589 cities</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>© 2024 Bundl Technologies Pvt. Ltd</p>
+        </div>
+    </footer>
+
+</body>
+</html>
